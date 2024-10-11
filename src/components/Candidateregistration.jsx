@@ -68,7 +68,8 @@ const Candidate = () => {
                 
                 <ToastContainer 
                     position="top-right"
-                    autoClose={3000}               
+                    autoClose={3000}
+                    style = {{position:'fixed', top:'100px', right:'20px'}}               
                 />
 
                 <div className="md:w-10/12 mx-auto">

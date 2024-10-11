@@ -1,4 +1,6 @@
-const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullname, email, password, setFullname, setEmail, setPassword}) => {
+
+ 
+const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullname, email, phone, password, setFullname, setEmail, setPhone, setPassword}) => {
     return ( 
         <div className="form shadow-md p-4 border-slate-200">
             <form onSubmit={onSubmit} className="auth">
@@ -14,6 +16,13 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
                 <div className="p-2 my-2">
                     <input type="email" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="email" value={email} placeholder="Email" onChange={(e)=>setEmail(e.target.value)} />
                 </div>
+
+                {isSignUp && (
+                    <div className="p-2 my-2">
+                        <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="phone" value={phone} placeholder="Phone" onChange={(e)=>setPhone(e.target.value)} />
+                    </div>
+                    
+                )}
 
                 <div className="p-2 my-2">
                     <input type="password" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="password" value={password} placeholder="Password" minLength={6} onChange={(e)=>setPassword(e.target.value)} />

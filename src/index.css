@@ -7,3 +7,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body{
+  background: rgb(3, 27, 43);
+}
