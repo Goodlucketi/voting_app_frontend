@@ -1,4 +1,4 @@
-const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm}) => {
+const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullname, email, password, setFullname, setEmail, setPassword}) => {
     return ( 
         <div className="form shadow-md p-4 border-slate-200">
             <form onSubmit={onSubmit} className="auth">
@@ -6,17 +6,17 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm}) => {
 
                 {isSignUp && (
                     <div className="p-2 my-2">
-                        <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="fullname" placeholder="Full Name" />
+                        <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="fullname" value={fullname} placeholder="Full Name" onChange={(e)=>setFullname(e.target.value)} />
                     </div>
                     
                 )}
 
                 <div className="p-2 my-2">
-                    <input type="email" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="email" placeholder="Email" />
+                    <input type="email" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="email" value={email} placeholder="Email" onChange={(e)=>setEmail(e.target.value)} />
                 </div>
 
                 <div className="p-2 my-2">
-                    <input type="password" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="password" placeholder="Password" minLength={6} />
+                    <input type="password" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="password" value={password} placeholder="Password" minLength={6} onChange={(e)=>setPassword(e.target.value)} />
                 </div>
 
                 <div className="p-2 my-2">

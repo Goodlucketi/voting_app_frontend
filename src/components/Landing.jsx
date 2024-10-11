@@ -21,6 +21,8 @@ const LandingPage = () => {
                     body: JSON.stringify({fullname, email, password}),
                 }))
                 const result = await response.json()
+                console.log(result.success);
+                
                 if (result.success){
                     alert("Registration Successful, Please Login")
                     setFullname('');
@@ -57,7 +59,7 @@ const LandingPage = () => {
         <header className=" bg-slate-900 h-screen fixed w-full text-white md:pt-32">
             <main className="w-11/12 mx-auto md:flex justify-around items-center">
                 <div className="text p-4 md:w-5/12">
-                    <h1 className="text-4xl text-center md:text-left font-bold">WELCOME TO OUR <br/> <span className="text-blue-700 py-3">VOTING PLATFORM</span></h1>
+                    <h1 className="text-4xl text-center md:text-left font-bold">WELCOME TO OUR <br/> <span className="text-cyan-400 py-3 text-6xl">VOTING PLATFORM</span></h1>
                     <p className="text-blue my-2 text-lg text-center md:text-left">Sign up and Login to Vote</p>
                 </div>
                 <div className="form md:w-5/12">
@@ -67,6 +69,12 @@ const LandingPage = () => {
                         isSignUp={isSignUp}
                         onSubmit={handleSubmit}
                         toggleForm={toggleForm}
+                        setFullname={setFullname}
+                        setEmail={setEmail}
+                        setPassword={setPassword}
+                        fullname={fullname}
+                        email={email}
+                        password={password}
                     />
                 </div>
             </main>
