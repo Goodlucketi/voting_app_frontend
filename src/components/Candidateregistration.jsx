@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import vote_candidate from '../assets/images/vote_candidate.jpg'
  
 const Candidate = () => {
     const [name, setName] = useState('');
@@ -62,67 +63,72 @@ const Candidate = () => {
        }
 
     return ( 
-        <main className="p-4">
-            <form onSubmit={submitCandidate} className="p-4 w-10/12 lg:w-6/12 mx-auto">
-                <h2 className='text-center text-3xl font-bold my-5'>Candidate Registration</h2>
-                
-                <ToastContainer 
-                    position="top-right"
-                    autoClose={3000}
-                    style = {{position:'fixed', top:'100px', right:'20px'}}               
-                />
+        <main className="pt-10">
+            <h2 className='text-center text-2xl font-bold mt-5'>Candidate Registration</h2>
+            <div className="reg p-4 md:flex justify-even items-center mx-auto w-11/12">
+                <div className="image md:w-6/12">
+                    <img src={vote_candidate} alt="Voting Image" className='w-full' />
+                </div>
+                <form onSubmit={submitCandidate} className="p-4 w-10/12 lg:w-6/12 mx-auto">
+                    
+                    <ToastContainer 
+                        position="top-right"
+                        autoClose={3000}
+                        style = {{position:'fixed', top:'100px', right:'20px'}}               
+                    />
 
-                <div className="md:w-10/12 mx-auto">
-                    <input
-                    type="text"
-                    className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
-                    placeholder="Candidate Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div className="md:w-10/12 mx-auto">
-                    <input
-                    type="email"
-                    className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
-                    placeholder="Candidate Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-                <div className="md:w-10/12 mx-auto">
-                    <input
-                    type="text"
-                    className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
-                    placeholder="Candidate Phone"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    />
-                </div>
-                <div className="md:w-10/12 mx-auto">
-                    <textarea
-                    placeholder="Candidate Description"
-                    className='p-4 w-full my-2 border-slate-500 border-2 rounded-md'
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    />
-                </div>
-                <div className="md:w-10/12 mx-auto">
-                    <input 
-                        type="file" 
-                        name="image"
-                        className='p-4 w-full my-2 border-slate-500 border-2 rounded-md'
-                    />
-                </div>
-                <div className="md:w-6/12 mx-auto">
-                    <input 
-                        type="submit" 
-                        className='p-4 w-full my-2 border-slate-500 bg-blue-600 text-white text-xl border-2 rounded-md hover:bg-blue-800 transition-all duration-500 cursor-pointer'
-                        value='Register Candidate'
-                    />
-                </div>
+                    <div className="md:w-10/12 mx-auto">
+                        <input
+                        type="text"
+                        className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
+                        placeholder="Candidate Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        />
+                    </div>
+                    <div className="md:w-10/12 mx-auto">
+                        <input
+                        type="email"
+                        className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
+                        placeholder="Candidate Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="md:w-10/12 mx-auto">
+                        <input
+                        type="text"
+                        className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
+                        placeholder="Candidate Phone"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        />
+                    </div>
+                    <div className="md:w-10/12 mx-auto">
+                        <textarea
+                        placeholder="Candidate Description"
+                        className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        />
+                    </div>
+                    <div className="md:w-10/12 mx-auto">
+                        <input 
+                            type="file" 
+                            name="image"
+                            className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
+                        />
+                    </div>
+                    <div className="md:w-6/12 mx-auto">
+                        <input 
+                            type="submit" 
+                            className='p-3 w-full my-2 border-slate-500 bg-blue-600 text-white text-xl border-2 rounded-md hover:bg-blue-800 transition-all duration-500 cursor-pointer'
+                            value='Register Candidate'
+                        />
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </main>
      );
     }

@@ -1,4 +1,4 @@
-import Candidates from "../Candid";
+import Candidates from "./Candid";
 
 const Vote = () => {
     return ( 

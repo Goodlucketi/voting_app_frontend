@@ -1,14 +1,8 @@
-import CandidatesData from "../Candid";
-import Candidates from "../components/Candidates";
+import CandidatesData from "../components/Candid";
 
 const ViewCandidates = () => {
     return ( 
         <main>
-           {/* <Candidates 
-               title={"Registered Candidate"}
-               showVoteButton = {false}
-           /> */}
-
            <CandidatesData 
                title={"Registered Candidates"}
                showVoteBtn={false}

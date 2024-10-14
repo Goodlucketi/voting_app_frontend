@@ -1,9 +1,3 @@
-import candidateImg from "../assets/images/candidate.png"
-import candidateImg2 from "../assets/images/candidate (2).png"
-import candidateImg3 from "../assets/images/candidate (3).png"
-import candidateImg4 from "../assets/images/candidate (4).png"
-import candidateImg5 from "../assets/images/candidate (5).png"
-import candidateImg6 from "../assets/images/candidate (6).png"
 import { useState } from "react"
 
 const Candidates = ({title, vote, showVoteButton}) => {

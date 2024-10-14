@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar"
+
 import Candidate from "../components/Candidateregistration";
 const RegPage = () => {
     return ( 
