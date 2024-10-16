@@ -21,8 +21,6 @@ const Navbar = () => {
                     <li className="p-2 my-2 list-none"><Link to="/">Home</Link></li>
                     <li className="p-2 my-2 list-none"><Link to="/candidateReg">Register Candidate</Link></li>
                     <li className="p-2 my-2 list-none"><Link to="/viewCandidates">View Candidates</Link></li>
-                    <li className="p-2 my-2 list-none"><Link to="/votingPage">Vote Candidate</Link></li>
-                    {/* <li className="p-2 my-2 list-none"><Link to="/dashboard">Dashboard</Link></li> */}
                 </div>
                 <div onClick={navToggle} className="menu md:hidden">
                     <p className="my-1 bg-slate-300 px-4 py-0.5"></p>

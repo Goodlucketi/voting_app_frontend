@@ -101,6 +101,8 @@ const Candidate = () => {
                         className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
                         placeholder="Candidate Phone"
                         value={phone}
+                        max={14}
+                        min={11}
                         onChange={(e) => setPhone(e.target.value)}
                         />
                     </div>

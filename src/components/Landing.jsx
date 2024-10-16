@@ -63,7 +63,6 @@ const LandingPage = () => {
             } 
         }
         else{
-            console.log("Login Form");
             try {
                 const response = await(fetch('http://localhost/votingapp/controllers/voterLogin.php', {
                     method: 'POST',
