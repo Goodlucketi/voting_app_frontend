@@ -7,10 +7,11 @@ const Candidate = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
+    const [party, setParty] = useState('');
     const [description, setDescription] = useState('');
     
     const validateForm = (e)=>{
-        if(!name || !email || !phone || !description){
+        if(!name || !email || !phone || !party || !description){
             toast.error("All fields are required")
             return false
         }
@@ -37,6 +38,7 @@ const Candidate = () => {
         formData.append('name', name);
         formData.append('email', email);
         formData.append('phone', phone);
+        formData.append('party', party);
         formData.append('description', description);
         formData.append('image', e.target.image.files[0]);
 
@@ -51,6 +53,7 @@ const Candidate = () => {
                 setName('');
                 setEmail('');
                 setPhone('');
+                setParty('');
                 setDescription('')
                 e.target.image.value = '';
             }else{
@@ -107,8 +110,18 @@ const Candidate = () => {
                         />
                     </div>
                     <div className="md:w-10/12 mx-auto">
+                        <select className='p-3 w-full my-2 border-slate-500 border-2 rounded-md' value={party} onChange={(e) => setParty(e.target.value)}>
+                            <option value="null">Candidate Party</option>
+                            <option value="pdp">PDP</option>
+                            <option value="apc">APC</option>
+                            <option value="anpp">ANPP</option>
+                            <option value="lp">LP</option>
+                            <option value="apga">APGA</option>
+                        </select>
+                    </div>
+                    <div className="md:w-10/12 mx-auto">
                         <textarea
-                        placeholder="Candidate Description"
+                        placeholder="Candidate Manifesto"
                         className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}

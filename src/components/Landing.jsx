@@ -10,17 +10,28 @@ const LandingPage = () => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [voterId, setVoterId] = useState('');
     const navigate = useNavigate()
     
+    const registeredVoters = ['abcd1234', 'efgh5678', 'ijkl9102', 'mnop1034', 'qrst3241']
+
     const toggleForm = ()=>{
         setIsSignUp(!isSignUp)
     }
     const validateForm = (e)=>{
         if(isSignUp){
-            if(!fullname || !email || !phone || !password){
+            if(!fullname || !email || !phone || !voterId || !password){
                 toast.error("All fields are required")
                 return false
             }
+            if(registeredVoters.includes(voterId)){
+                toast.success('Voter Approved')
+                return true
+            }else{
+                toast.error('Voter not eligible (Incorrect Voter ID)')
+                return false
+            }
+
         }else{
             if(!email || !password){
                 toast.error("All fields are required")
@@ -53,7 +64,8 @@ const LandingPage = () => {
                     toast.success("Registration Successful, Please Login")
                     setFullname('');
                     setEmail('');
-                    setPhone('')
+                    setPhone('');
+                    setVoterId('');
                     setPassword('');
                 }else{
                     toast.error(result.message || "Failed to register voter")
@@ -94,7 +106,7 @@ const LandingPage = () => {
                 style={{ position:'fixed', top:'100px', right:'20px'}}    
             />
             <main className="w-11/12 mx-auto md:flex justify-around">
-                <div className=" text pt-10 md:pt-28 p-4 md:w-5/12">
+                <div className=" text pt-10 md:pt-32 p-4 md:w-5/12">
                     <h1 className=" text-2xl md:text-4xl text-center md:text-left font-bold">WELCOME TO OUR <br/> <span className="text-cyan-400 py-3 text-3xl md:text-5xl">VOTING PLATFORM</span></h1>
                     <p className="text-blue my-2 md:text-lg text-center md:text-left">Sign up and Login to Vote</p>
                 </div>
@@ -108,6 +120,7 @@ const LandingPage = () => {
                         setFullname={setFullname}
                         setEmail={setEmail}
                         setPhone={setPhone}
+                        setVoterId={setVoterId}
                         setPassword={setPassword}
                         fullname={fullname}
                         email={email}

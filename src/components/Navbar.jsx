@@ -19,7 +19,7 @@ const Navbar = () => {
                 </div>
                 <div className={`${navMenu ? ('block'): ('hidden')} actions bg-slate-900 p-10 absolute top-10 -right-7 h-screen md:h-0 md:top-0 md:right-0 md:bg-transparent md:p-5 md:text-center md:relative md:flex items-center gap-5`}>
                     <li className="p-2 my-2 list-none"><Link to="/">Home</Link></li>
-                    <li className="p-2 my-2 list-none"><Link to="/candidateReg">Register Candidate</Link></li>
+                    {/* <li className="p-2 my-2 list-none"><Link to="/candidateReg">Register Candidate</Link></li> */}
                     <li className="p-2 my-2 list-none"><Link to="/viewCandidates">View Candidates</Link></li>
                 </div>
                 <div onClick={navToggle} className="menu md:hidden">
