@@ -11,6 +11,11 @@ const LandingPage = () => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [voterId, setVoterId] = useState('');
+    const [selectedLga, setSelectedLga] = useState('')
+    const [selectedState, setSelectedState] = useState("")
+    const [gender, setGender] = useState('')
+    const [ward, setWard] = useState('')
+    const [ageRange, setAgeRange] = useState('')
     const navigate = useNavigate()
     
     const registeredVoters = ['abcd1234', 'efgh5678', 'ijkl9102', 'mnop1034', 'qrst3241']
@@ -20,7 +25,7 @@ const LandingPage = () => {
     }
     const validateForm = (e)=>{
         if(isSignUp){
-            if(!fullname || !email || !phone || !voterId || !password){
+            if(!fullname || !email || !phone || !voterId || !password || !selectedLga || !selectedState || !gender || !ward || !ageRange){
                 toast.error("All fields are required")
                 return false
             }
@@ -53,9 +58,9 @@ const LandingPage = () => {
         if(isSignUp){
            
             try {
-                const response = await(fetch('http://localhost/votingapp/controllers/voterRegistration.php', {
+                const response = await(fetch('https://app.snosfortress.com/controllers/voterRegistration.php', {
                     method: 'POST',
-                    body: JSON.stringify({fullname, email, phone, password}),
+                    body: JSON.stringify({fullname, email, voterId, phone, password, selectedLga, selectedState, ageRange, gender, ward}),
                 }))
                 const result = await response.json()
                 console.log(result.success);
@@ -67,6 +72,11 @@ const LandingPage = () => {
                     setPhone('');
                     setVoterId('');
                     setPassword('');
+                    setAgeRange('')
+                    setGender('')
+                    setSelectedLga('')
+                    setSelectedState('')
+                    setWard('')
                 }else{
                     toast.error(result.message || "Failed to register voter")
                 }
@@ -76,7 +86,7 @@ const LandingPage = () => {
         }
         else{
             try {
-                const response = await(fetch('http://localhost/votingapp/controllers/voterLogin.php', {
+                const response = await(fetch('https://app.snosfortress.com/controllers/register.php', {
                     method: 'POST',
                     body: JSON.stringify({email, password}),
                 }))
@@ -99,7 +109,7 @@ const LandingPage = () => {
         }
     }
     return ( 
-        <header className="landing md:fixed md:h-screen h-auto w-full text-white md:pt-16 lg:pt-20 md:pb-16">
+        <header className="landing md:fixed md:overflow-scroll md:h-screen h-auto w-full text-white md:pt-16 lg:pt-20 md:pb-16">
             <ToastContainer
                 position="top-right"
                 autoClose={3000} 
@@ -122,10 +132,21 @@ const LandingPage = () => {
                         setPhone={setPhone}
                         setVoterId={setVoterId}
                         setPassword={setPassword}
+                        setSelectedState={setSelectedState}
+                        setSelectedLga={setSelectedLga}
+                        setAgeRange={setAgeRange}
+                        setWard={setWard}
+                        setGender={setGender}
                         fullname={fullname}
                         email={email}
                         phone={phone}
                         password={password}
+                        gender={gender}
+                        ageRange={ageRange}
+                        selectedLga={selectedLga}
+                        selectedState={selectedState}
+                        ward={ward}
+                        voterId={voterId}
                     />
                 </div>
             </main>
