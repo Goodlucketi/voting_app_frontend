@@ -8,18 +8,17 @@
   box-sizing: border-box;
 }
 
-body{
-  /* background: rgb(3, 27, 43); */
-}
 
 .landing{
-  background: linear-gradient(rgba(0, 2, 22, 0.829), rgba(2, 11, 20, 0.89)), url('./assets/images/voter.jpg') no-repeat center fixed;
+  background: linear-gradient(rgba(0, 2, 22, 0.829), rgba(2, 11, 20, 0.89)), url('./assets/images/voter.jpg') no-repeat center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .hero{
-  background: linear-gradient(rgba(0, 2, 22, 0), rgba(2, 11, 20, 0.479)), url('./assets/images/hero2.Avif') no-repeat center fixed;
+  background: linear-gradient(rgba(0, 2, 22, 0), rgba(2, 11, 20, 0.479)), url('./assets/images/hero2.Avif') no-repeat center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .results_table tr:nth-child(even){

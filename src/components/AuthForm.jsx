@@ -34,7 +34,7 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
     }
 
     return ( 
-        <div className="form shadow-md px-4">
+        <div className="form shadow-md px-4 pt-3 pb-44">
             <form onSubmit={onSubmit} className="auth">
                 <h2 className="text-2xl text-center font-bold mb-2">{title}</h2>
 
