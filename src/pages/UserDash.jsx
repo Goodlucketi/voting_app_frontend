@@ -48,7 +48,7 @@ const UserDashPage = () => {
     const handleUpdate = async (e) =>{
         e.preventDefault()        
         try {
-            const response = await(fetch('http://localhost/votingapp/controllers/editvoter.php', {
+            const response = await(fetch('https://app.snosfortress.com/controllers/editvoter.php', {
                 method: 'PUT',
                 body: JSON.stringify({fullname, email, phone, password}),
             }))
@@ -64,7 +64,7 @@ const UserDashPage = () => {
     }
     return ( 
         <main className="flex">
-            <div className="w-2/12">
+            <div className=" fixed z-10 w-3/12">
                 <SideBar onTabChange={tabChange} />
             </div>
             <div className="w-11/12 mx-auto">
