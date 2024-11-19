@@ -16,7 +16,7 @@
 }
 
 .hero{
-  background: linear-gradient(rgba(0, 2, 22, 0), rgba(2, 11, 20, 0.479)), url('./assets/images/hero2.Avif') no-repeat center;
+  background: linear-gradient(rgba(0, 2, 22, 0), rgba(2, 11, 20, 0.479)), url('./assets/images/hero.jpg') no-repeat center;
   background-size: cover;
   background-attachment: fixed;
 }
