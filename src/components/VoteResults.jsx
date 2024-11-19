@@ -4,7 +4,7 @@ const VoteResults = () => {
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost/votingapp/controllers/voteResults.php")
+        fetch("https://app.snosfortress.com/controllers/voteResults.php")
             .then(response => response.json())
             .then(data => setResults(data.results))
             .catch(error => console.error("Error loading results:", error));
@@ -20,6 +20,7 @@ const VoteResults = () => {
                             <th className="p-2 border-2">S/N</th>
                             <th className="p-2 border-2">Candidate Name</th>
                             <th className="p-2 border-2">Vote Count</th>
+                            <th className="p-2 border-2">PARTY</th>
                         </tr>   
                     </thead>
                     <tbody>
@@ -28,6 +29,7 @@ const VoteResults = () => {
                                 <td className="p-2 border-2">{index+1}</td>
                                 <td className="p-2 border-2">{result.candidate_name}</td>
                                 <td className="p-2 border-2">{result.vote_count}</td>
+                                <td className="p-2 border-2">{result.party.toUpperCase()}</td>
                            </tr>     
                         ))}
                         

@@ -86,7 +86,7 @@ const LandingPage = () => {
         }
         else{
             try {
-                const response = await(fetch('https://app.snosfortress.com/controllers/register.php', {
+                const response = await(fetch('https://app.snosfortress.com/controllers/voterLogin.php', {
                     method: 'POST',
                     body: JSON.stringify({email, password}),
                 }))

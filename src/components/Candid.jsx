@@ -7,7 +7,7 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     const token = localStorage.getItem('token')
     
     useEffect(()=>{
-        fetch('http://localhost/votingapp/controllers/candidates.php',{
+        fetch('https://app.snosfortress.com/controllers/candidates.php',{
             method:'GET',
         }).then((res)=>{
             return res.json()
@@ -21,8 +21,9 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     },[])
 
     const voteCandidate = async (candidateId) => {
+        
         try {
-            const response = await fetch("http://localhost/votingapp/controllers/vote.php", {
+            const response = await fetch("https://app.snosfortress.com/controllers/vote.php", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -50,14 +51,15 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                 autoClose={3000} 
                 style={{ position:'fixed', top:'100px', right:'20px'}}    
             />
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-20">
                 {candidates.length > 0 ? (
                     candidates.map((candidate)=> (
                         <div key={candidate.id} className="text-center border-2 rounded-md pb-4 shadow-md hover:scale-105 transition-all duration-500">
-                            <img src={`http://localhost/votingapp/uploads/${candidate.image_url}`} alt={candidate.image_url + "'s Photo"} className="w-full h-52 object-cover object-top rounded-md"/>
-                            <h3 className="text-lg font-semibold mt-2">{candidate.name}</h3>
+                            <img src={`https://app.snosfortress.com/uploads/${candidate.image_url}`} alt={candidate.image_url + "'s Photo"} className="w-full h-52 object-cover object-top rounded-md"/>
+                            <h3 className="text-xl font-semibold mt-2">{candidate.name}</h3>
                             <p>{candidate.email}</p>
-                            <p>{candidate.description}</p>
+                            <p className="py-2 px-4 text-justify">{candidate.manifesto}</p>
+                            <p className="py-2 px-4 text-center font-bold bg-blue-700 text-white rounded-md md:w-6/12 mx-auto">{candidate.party.toUpperCase()}</p>
                             
                             {showVoteCount &&(
                                 <p className="font-bold text-lg">Votes: {candidate.voteCount}</p>

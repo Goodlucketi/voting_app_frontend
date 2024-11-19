@@ -8,9 +8,10 @@ const Vote_History = () => {
                         <thead>
                             <tr>
                                 <td className="px-2">S/N</td>
-                                <td className="px-2">Voter Name</td>
                                 <td className="px-2">Candidate Name</td>
+                                <td className="px-2">Candidate Party</td>
                                 <td className="px-2">Candidate Vote Count</td>
+                                <td className="px-2">Type of Election</td>
                                 <td className="px-2">Remark</td>
                             </tr>
                         </thead>

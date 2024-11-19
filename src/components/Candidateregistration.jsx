@@ -6,12 +6,11 @@ import vote_candidate from '../assets/images/vote_candidate.jpg'
 const Candidate = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
     const [party, setParty] = useState('');
-    const [description, setDescription] = useState('');
+    const [manifesto, setManifesto] = useState('');
     
     const validateForm = (e)=>{
-        if(!name || !email || !phone || !party || !description){
+        if(!name || !email || !party || !manifesto){
             toast.error("All fields are required")
             return false
         }
@@ -37,13 +36,12 @@ const Candidate = () => {
         const formData = new FormData()
         formData.append('name', name);
         formData.append('email', email);
-        formData.append('phone', phone);
         formData.append('party', party);
-        formData.append('description', description);
+        formData.append('manifesto', manifesto);
         formData.append('image', e.target.image.files[0]);
 
         try {
-            const response = await(fetch('http://localhost/votingapp/controllers/register.php', {
+            const response = await(fetch('https://app.snosfortress.com/controllers/register.php', {
                 method: 'POST',
                 body: formData,
             }))
@@ -52,9 +50,8 @@ const Candidate = () => {
                 toast.success('Candidate Registered Successfully')
                 setName('');
                 setEmail('');
-                setPhone('');
                 setParty('');
-                setDescription('')
+                setManifesto('')
                 e.target.image.value = '';
             }else{
                 toast.error(result.message || 'Failed to register candidate')
@@ -98,7 +95,7 @@ const Candidate = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div className="md:w-10/12 mx-auto">
+                    {/* <div className="md:w-10/12 mx-auto">
                         <input
                         type="text"
                         className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
@@ -108,23 +105,23 @@ const Candidate = () => {
                         min={11}
                         onChange={(e) => setPhone(e.target.value)}
                         />
-                    </div>
+                    </div> */}
                     <div className="md:w-10/12 mx-auto">
                         <select className='p-3 w-full my-2 border-slate-500 border-2 rounded-md' value={party} onChange={(e) => setParty(e.target.value)}>
                             <option value="null">Candidate Party</option>
-                            <option value="pdp">PDP</option>
-                            <option value="apc">APC</option>
-                            <option value="anpp">ANPP</option>
-                            <option value="lp">LP</option>
-                            <option value="apga">APGA</option>
+                            <option value="party A">Party A</option>
+                            <option value="party B">Party B</option>
+                            <option value="party C">Party C</option>
+                            <option value="party D">Party D</option>
+                            <option value="party E">Party E</option>
                         </select>
                     </div>
                     <div className="md:w-10/12 mx-auto">
                         <textarea
                         placeholder="Candidate Manifesto"
                         className='p-3 w-full my-2 border-slate-500 border-2 rounded-md'
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        value={manifesto}
+                        onChange={(e) => setManifesto(e.target.value)}
                         />
                     </div>
                     <div className="md:w-10/12 mx-auto">
