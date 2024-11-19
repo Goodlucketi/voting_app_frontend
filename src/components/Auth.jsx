@@ -109,7 +109,7 @@ const Auth = () => {
         }
     }
     return ( 
-        <header className="landing md:fixed md:overflow-scroll py-8 md:h-screen h-auto w-full text-white md:pt-16 lg:pt-20 md:pb-16">
+        <header className="landing md:fixed md:overflow-scroll pt-10 pb-52 md:h-screen h-auto w-full text-white md:pt-16 lg:pt-20 md:pb-16">
             <ToastContainer
                 position="top-right"
                 autoClose={3000} 
