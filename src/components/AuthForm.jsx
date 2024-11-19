@@ -34,30 +34,30 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
     }
 
     return ( 
-        <div className="form shadow-md p-4 border-slate-200">
+        <div className="form shadow-md px-4">
             <form onSubmit={onSubmit} className="auth">
-                <h2 className="text-2xl text-center font-bold">{title}</h2>
+                <h2 className="text-2xl text-center font-bold mb-2">{title}</h2>
 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="fullname" value={fullname} placeholder="Full Name" onChange={(e)=>setFullname(e.target.value)} />
                     </div>
                     
                 )}
 
-                <div className="p-2 my-2">
+                <div className="p-2">
                     <input type="email" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="email" value={email} placeholder="Email" onChange={(e)=>setEmail(e.target.value)} />
                 </div>
 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="phone" value={phone} placeholder="Phone" onChange={(e)=>setPhone(e.target.value)} />
                     </div>
                     
                 )}
 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <select name="state" id="state" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" value={selectedState} onChange={handleStateChange}>
                             <option value="">Select State</option>
                             {states.map((state,index)=>(
@@ -68,7 +68,7 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
                 )}
 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <select name="lga" id="lga" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" value={selectedLga} onChange={(e)=>setSelectedLga(e.target.value)}>
                             <option value="">Select LGA</option>
                             {lgas.map((lgaName,index)=>(
@@ -79,7 +79,7 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
                 )}
 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <select name="ward" id="ward" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" value={ward} onChange={(e)=>setWard(e.target.value)}>
                             <option value="">Select Ward</option>
                             <option value="ward 1">Ward 1</option>
@@ -90,7 +90,7 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
                 )}
                 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <select name="gender" id="gender" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" value={gender} onChange={(e)=>setGender(e.target.value)}>
                             <option value="">Select Gender</option>
                             <option value="male">Male</option>
@@ -100,7 +100,7 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
                 )}
                 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <select name="age_range" id="age_range" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" value={ageRange} onChange={(e)=>setAgeRange(e.target.value)}>
                             <option value="">Age Range</option>
                             <option value="18-30">18 - 30</option>
@@ -114,13 +114,13 @@ const AuthForm = ({title, option, isSignUp = true, onSubmit, toggleForm, fullnam
                 
 
                 {isSignUp && (
-                    <div className="p-2 my-2">
+                    <div className="p-2">
                         <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="voterId" value={voterId} placeholder="Voter ID Number" onChange={(e)=>setVoterId(e.target.value)} />
                     </div>
                     
                 )}
 
-                <div className="p-2 my-2">
+                <div className="p-2">
                     <input type="password" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="password" value={password} placeholder="Password" minLength={6} onChange={(e)=>setPassword(e.target.value)} />
                 </div>
 

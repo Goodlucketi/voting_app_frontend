@@ -2,9 +2,9 @@ import LandingPage from "../components/Landing";
 
 const Home = () => {
     return ( 
-        <main>
+        <header className="hero">
             <LandingPage />
-        </main>
+        </header>
      );
 }
  
