@@ -64,7 +64,7 @@ const UserDashPage = () => {
     }
     return ( 
         <main className="flex">
-            <div className=" fixed z-10 w-3/12">
+            <div className=" fixed z-10 w-full md:w-3/12">
                 <SideBar onTabChange={tabChange} />
             </div>
             <div className="w-11/12 mx-auto">
