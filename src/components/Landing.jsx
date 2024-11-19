@@ -18,7 +18,7 @@ const LandingPage = () => {
     const [ageRange, setAgeRange] = useState('')
     const navigate = useNavigate()
     
-    const registeredVoters = ['abcd1234', 'efgh5678', 'ijkl9102', 'mnop1034', 'qrst3241']
+    const registeredVoters = ['abcd1234', 'efgh5678', 'ijkl9102', 'mnop1034', 'qrst3241', "A1B2C3D4", "E5F6G7H8", "I9J0K1L2", "M3N4O5P6", "Q7R8S9T0", "U1V2W3X4", "Y5Z6A7B8", "C9D0E1F2", "G3H4I5J6", "K7L8M9N0"]
 
     const toggleForm = ()=>{
         setIsSignUp(!isSignUp)
@@ -117,7 +117,7 @@ const LandingPage = () => {
             />
             <main className="w-11/12 mx-auto md:flex justify-around">
                 <div className=" text pt-10 md:pt-32 p-4 md:w-5/12">
-                    <h1 className=" text-2xl md:text-4xl text-center md:text-left font-bold">WELCOME TO OUR <br/> <span className="text-cyan-400 py-3 text-3xl md:text-5xl">VOTING PLATFORM</span></h1>
+                    <h1 className=" text-2xl md:text-4xl text-center md:text-left font-bold">WELCOME TO <br/> <span className="text-cyan-400 py-3 text-3xl md:text-5xl">ELECTRONIC VOTING PLATFORM</span></h1>
                     <p className="text-blue my-2 md:text-lg text-center md:text-left">Sign up and Login to Vote</p>
                 </div>
                 <div className="form md:w-5/12">
