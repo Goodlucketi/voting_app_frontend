@@ -54,7 +54,7 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
             <div className="grid md:grid-cols-2 grid-cols-1 gap-20">
                 {candidates.length > 0 ? (
                     candidates.map((candidate)=> (
-                        <div key={candidate.id} className="reltaive text-center border-2 rounded-md pb-4 shadow-md hover:scale-105 transition-all duration-500">
+                        <div key={candidate.id} className="relataive text-center border-2 rounded-md pb-4 shadow-md hover:scale-105 transition-all duration-500">
                             <img src={`https://app.snosfortress.com/uploads/${candidate.image_url}`} alt={candidate.image_url + "'s Photo"} className="w-full h-72 object-cover object-top rounded-md"/>
                             <h3 className="text-xl font-semibold mt-2">{candidate.name} ({candidate.party.toUpperCase()})</h3>
                             <p className="font-bold text-2xl px-4">Manifesto</p>
