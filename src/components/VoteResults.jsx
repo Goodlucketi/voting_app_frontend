@@ -11,9 +11,9 @@ const VoteResults = () => {
     }, []);
 
     return ( 
-        <main className="p-4 vote-results">
+        <main className="p-4 vote-results h-screen">
             <div>
-                <h2 className="text-center font-bold text-3xl md:my-10">Vote Results</h2>
+                <h2 className="text-center  font-bold text-3xl md:my-10">Vote Results</h2>
                 <table className="results_table border-collapse w-11/12 mx-auto border-2">
                     <thead className="text-left">
                         <tr className="border-2">

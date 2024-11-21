@@ -31,7 +31,7 @@ const Vote_History = () => {
     }, [voterId]);
 
     return ( 
-        <main className="p-4">
+        <main className="p-4 h-screen">
             <div className="history">
                 <h2 className="my-5 text-center font-bold test-slate-600 text-3xl">Vote History</h2>
                 <div className="table w-11/12 mx-auto">

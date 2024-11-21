@@ -63,12 +63,12 @@ const UserDashPage = () => {
             } 
     }
     return ( 
-        <main className="tab h-screen">
+        <main className="tab ">
             
             <SideBar onTabChange={tabChange} />
             <div className=" w-11/12 mx-auto pl-20">
-                <h2 className="font-bold text-center text-2xl p-2">Welcome {userInfo.name }</h2>
-                <p className="text-center">{ userInfo.email }</p>
+                <h2 className="font-bold text-left pl-20 text-2xl p-2">Welcome {userInfo.name }</h2>
+                <p className="pl-20 text-left">{ userInfo.email }</p>
 
                 {activeTab === "candidates" && <CandidateData showVoteBtn={true} vote={'Vote'}/>}
                 {activeTab === 'results' && <VoteResults/>}

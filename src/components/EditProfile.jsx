@@ -6,7 +6,7 @@ const EditProfile = ({onSubmit, fullname, email, phone, password, setFullname, s
 
     })
     return ( 
-        <div className="form shadow-md p-4 border-slate-200 w-10/12 mx-auto">
+        <div className="form h-screen shadow-md p-4 border-slate-200 w-10/12 mx-auto">
             <form onSubmit={onSubmit} className="auth">
                 <h2 className="text-2xl text-center font-bold">Edit Your Profile</h2>
 
