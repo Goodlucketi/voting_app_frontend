@@ -16,8 +16,8 @@ const SideBar = ({ onTabChange }) => {
     };
 
     return ( 
-        <header className="">
-            <aside className="">
+        <header className="fixed z-10 ">
+            <aside>
                 <div onClick={sidebarToggle} className="menu absolute px-4">
                     <p className="my-1 bg-slate-400 px-4 py-0.5"></p>
                     <p className="my-1 bg-slate-400 px-4 py-0.5"></p>
