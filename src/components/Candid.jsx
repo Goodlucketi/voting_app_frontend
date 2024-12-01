@@ -4,9 +4,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     const [candidates, setCandidates] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState('')
     const token = localStorage.getItem('token')
     
     useEffect(()=>{
+        setMessage("Loading Candidates")
         fetch('https://app.snosfortress.com/controllers/candidates.php',{
             method:'GET',
         }).then((res)=>{
@@ -17,11 +20,12 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
             
         }).catch((e)=>{
             toast.error("Failed to Load Candidates")
+            setMessage("Cannot Load Candidates, Please check your Network and try again")
         })
     },[])
 
     const voteCandidate = async (candidateId) => {
-        
+        setLoading(true)
         try {
             const response = await fetch("https://app.snosfortress.com/controllers/vote.php", {
                 method: "POST",
@@ -35,11 +39,15 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
             const result = await response.json()
             if(result.success){
                 toast.success("Vote Successful");
+                setLoading(false)
             }else{
                 toast.error(result.message || "Failed to Record vote")
+                setLoading(false)
             }
         } catch (error) {
             toast.error(error.message || "An error occured during voting")
+            setLoading(false)
+
         }
     }
 
@@ -67,12 +75,12 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                             
 
                             {showVoteBtn && (
-                                <button onClick={() => voteCandidate(candidate.id)} className="bg-green-600 py-4 px-8 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{vote}</button>
+                                <button onClick={() => voteCandidate(candidate.id)} className="bg-green-600 py-4 px-8 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{loading ? "Voting, Please Wait ..." : vote}</button>
                             )}
                         </div>
                     ))
                 ) : (
-                    <p>.... Loading Candidates</p>
+                    <p className="text-center py-40 border-2 md:absolute w-11/12">{message}</p>
                 )}
             </div>
         </main>
