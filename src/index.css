@@ -8,20 +8,22 @@
   box-sizing: border-box;
 }
 
-
-
+body{
+  background:linear-gradient(rgba(255, 255, 255, 0.514), rgba(255, 255, 255, 0.9)), url('./assets/images/hero2.svg') no-repeat center;
+  background-size: contain;
+  background-attachment: fixed;
+}
 .landing{
-  background: linear-gradient(rgba(0, 2, 22, 0.829), rgba(2, 11, 20, 0.89)), url('./assets/images/voter.jpg') no-repeat center;
+  background: linear-gradient(to right, rgba(245, 245, 245, 0.829), rgba(3, 90, 39, 0.514)), url('./assets/images/hero2.svg') no-repeat center;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.hero{
-  background: linear-gradient(rgba(0, 2, 22, 0), rgba(2, 11, 20, 0.479)), url('./assets/images/hero.jpg') no-repeat center;
+.features{
+  background:linear-gradient(rgba(0, 0, 0, 0.404), rgba(0, 0, 0, 0.733)), url('./assets/images/bgg.jpg') no-repeat center;
   background-size: cover;
   background-attachment: fixed;
 }
-
 .tab{
   background: url('./assets/images/flag2.png') no-repeat center;
   background-size: contain;
