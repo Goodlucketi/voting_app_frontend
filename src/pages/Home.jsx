@@ -4,7 +4,8 @@ import LandingPage from "../components/Landing";
 import { faLock, faChartBar, faVoteYea, faExclamationCircle, faGlobe, faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
 import HowItWorks from "../components/HowItWorks";
 import Footer from "../components/Footer";
-import { Link, Element } from "react-scroll";
+import { Element } from "react-scroll";
+import Faq from "../components/Faq";
 
 const Home = () => {
     return ( 
@@ -55,7 +56,10 @@ const Home = () => {
             <Element name="howitworks">
                 <HowItWorks />    
             </Element>
-            <Element name="footer">
+            <Element name="faqs">
+                <Faq />
+            </Element>
+            <Element>
                 <Footer />   
             </Element>
          

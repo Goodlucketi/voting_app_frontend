@@ -1,19 +1,12 @@
-import aboutImg1 from "../assets/images/evote_grid.jpg"
-import aboutImg2 from "../assets/images/evote_grid2.jpg"
+
 import aboutImg3 from "../assets/images/E-voting.png"
 import { Link } from "react-router-dom";
 const About = () => {
     
     return ( 
-        <main className="w-11/12 mx-auto shadow-md my-10 py-10 px-4">
-            <div className="about grid md:grid-cols-2 gap-5">
+        <main className="w-11/12 mx-auto shadow-md px-4">
+            <div className="about grid md:grid-cols-2 gap-x-5">
             <div className="img-grid">
-                    {/* <div className="img1">
-                        <img src={aboutImg1} alt="" />
-                    </div> */}
-                    {/* <div className="img1">
-                        <img src={aboutImg2} alt="" />
-                    </div> */}
                     <div className="img1">
                         <img src={aboutImg3} alt="" />
                     </div>
