@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const About = () => {
     
     return ( 
-        <main className="w-11/12 mx-auto shadow-md my-10 px-4">
+        <main className="w-11/12 mx-auto shadow-md my-10 py-10 px-4">
             <div className="about grid md:grid-cols-2 gap-5">
             <div className="img-grid">
                     {/* <div className="img1">

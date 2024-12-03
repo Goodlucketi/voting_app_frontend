@@ -20,7 +20,8 @@ const Navbar = () => {
                 </div>
                 <div className={`${navMenu ? ('block'): ('hidden')} actions bg-green-700 p-10 absolute top-10 -right-7 h-screen md:h-0 md:top-0 md:right-0 md:bg-transparent md:p-5 md:text-center md:relative md:flex items-center gap-5`}>
                     <li className="p-2 my-2 list-none"><Link to="home" smooth={true} duration={500}>Home</Link></li>
-                    <li className="p-2 my-2 list-none"><Link to="about" smooth={true} duration={500}>About iVOTE</Link></li>
+                    <li className="p-2 my-2 list-none"><Link to="about" smooth={true} duration={500}>About</Link></li>
+                    <li className="p-2 my-2 list-none"><Link to="features" smooth={true} duration={500}>Features</Link></li>
                     <li className="p-2 my-2 list-none"><Link to="howitworks" smooth={true} duration={500}>How it Works</Link></li>
                     <li className="p-2 my-2 list-none"><Link to="footer" smooth={true} duration={500}>FAQs</Link></li>
                 </div>
