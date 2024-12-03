@@ -21,7 +21,7 @@ const About = () => {
                 <div className="about-text p-2 py-8">
                     <h2 className="font-bold text-3xl text-green-700 mb-3">About iVOTE</h2>
                     <p className="text-xl text-justify mb-10 md:mb-5">
-                    BallotCode is a modern voting platform designed to revolutionize the electoral process with security, transparency, and simplicity at its core. Built for electoral bodies and voters alike, our platform ensures every vote is counted accurately and securely while empowering stakeholders to monitor and manage elections seamlessly.
+                    iVOTE is a modern voting platform designed to revolutionize the electoral process with security, transparency, and simplicity at its core. Built for electoral bodies and voters alike, our platform ensures every vote is counted accurately and securely while empowering stakeholders to monitor and manage elections seamlessly.
                     </p>
                     <Link to="/authentication" className="text-slate-50 font-bold p-3 shadow-md bg-green-700 hover:bg-green-500 duration-500 transition-all rounded-md ">Get Started</Link>
                 </div>
