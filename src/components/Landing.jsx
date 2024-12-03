@@ -7,7 +7,7 @@ const LandingPage = () => {
             <main className="md:grid md:grid-cols-2 items-center h-screen overflow-hidden mx-auto">
                 <div className="text md:relative text- md:text-left p-4 rounded-xl">
                     <p className="p-2 text-2xl font-bold">Your Vote... Your Power...</p> 
-                    <h1 className="font-bold text-green-700 lg:text-5xl md:text-3xl px-2 text-green-700 text-3xl mb-5">
+                    <h1 className="font-bold text-green-700 lg:text-5xl md:text-2xl px-2 text-green-700 text-3xl mb-5">
                         CAST IT WITH CONFIDENCE ON <span className="bg-green-700 text-white px-2 rounded-md ">
                             iVOTE
                         </span>

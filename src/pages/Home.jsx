@@ -3,7 +3,7 @@ import About from "../components/About";
 import Feature from "../components/Feature";
 import LandingPage from "../components/Landing";
 import { faLock, faChartBar, faVoteYea, faExclamationCircle, faGlobe, faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
-import Contact from "../Contact";
+import Contact from "../components/HowItWorks";
 
 
 const Home = () => {
