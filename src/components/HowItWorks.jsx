@@ -15,27 +15,27 @@ const HowItWorks = () => {
 
                         <ul>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
-                                <FontAwesomeIcon icon={faLock} className="text-green-700"/>
+                                <FontAwesomeIcon icon={faLock} className="text-green-700 text-2xl"/>
                                 <h2 className="font-bold text-xl text-green-800">Authenticate Securely</h2>
                                 <p>Use your NIN and BVN to verify your identity and access the voting system.</p>
                             </li>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
-                                <FontAwesomeIcon icon={faVoteYea} className="text-green-700"/>
+                                <FontAwesomeIcon icon={faVoteYea} className="text-green-700 text-2xl"/>
                                 <h2 className="font-bold text-xl text-green-800">Choose Your Candidate</h2>
                                 <p>Browse the list of candidates and select your preferred choice.</p>
                             </li>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
-                                <FontAwesomeIcon icon={faCheckCircle} className="text-green-700"/>
+                                <FontAwesomeIcon icon={faCheckCircle} className="text-green-700 text-2xl"/>
                                 <h2 className="font-bold text-xl text-green-800">Cast Your Vote</h2>
                                 <p>Confirm your selection and cast your vote with confidence.</p>
                             </li>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
-                                <FontAwesomeIcon icon={faHistory} className="text-green-700"/>
+                                <FontAwesomeIcon icon={faHistory} className="text-green-700 text-2xl"/>
                                 <h2 className="font-bold text-xl text-green-800">View Vote History</h2>
                                 <p>Access history of previous elections and votes.</p>
                             </li>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
-                                <FontAwesomeIcon icon={faChartBar} className="text-green-700"/>
+                                <FontAwesomeIcon icon={faChartBar} className="text-green-700 text-2xl"/>
                                 <h2 className="font-bold text-xl text-green-800">View Election Results</h2>
                                 <p>Access real-time election results once voting ends.</p>
                             </li>

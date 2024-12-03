@@ -4,6 +4,7 @@ import Feature from "../components/Feature";
 import LandingPage from "../components/Landing";
 import { faLock, faChartBar, faVoteYea, faExclamationCircle, faGlobe, faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
 import Contact from "../components/HowItWorks";
+import Footer from "../components/Footer";
 
 
 const Home = () => {
@@ -47,6 +48,7 @@ const Home = () => {
                 </div> 
             </div>
             <Contact />
+            <Footer />
             
         </main>
      );
