@@ -16,7 +16,7 @@ const Home = () => {
                 <About />      
             </Element>
             <Element name="features">
-                <div className="features mx-auto mt-20 bg-green-900 p-4">
+                <div className="features mx-auto mt-20 bg-green-900 py-10 p-4">
                     <h2 className="font-bold text-3xl text-slate-50 text-center">Features</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10 my-10 w-11/12 mx-auto">
                         <Feature 
