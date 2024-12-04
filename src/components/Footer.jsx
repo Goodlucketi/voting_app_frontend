@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
-import appStore from '../assets/images/store.png'
+
 const Footer = () => {
     return ( 
         <footer className="bg-green-100/75 py-10">
@@ -36,7 +36,7 @@ const Footer = () => {
                         <p><Link>Privacy Policy</Link></p>
                     </div>
 
-                    <div className="download">
+                    {/* <div className="download">
                         <h3 className="font-bold">Download our app</h3>
                         <img src={appStore} alt="App Store" />
                         <p className="text-right px-4">
@@ -46,7 +46,7 @@ const Footer = () => {
                             <Link><FontAwesomeIcon icon={faYoutube} className="text-black mr-3"/></Link>
                         
                         </p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>

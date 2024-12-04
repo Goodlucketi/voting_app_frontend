@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import PDP from '../assets/images/PDP.png'
+import APC from '../assets/images/APC.jpg'
+import LP from '../assets/images/LP.jpg'
+import APGA from '../assets/images/APGAA.png'
+import NNPP from '../assets/images/NNPP.png'
+import fingerprint from '../assets/images/fingerprint.png'
 
 const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     const [candidates, setCandidates] = useState([])
@@ -8,21 +14,42 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     const [message, setMessage] = useState('')
     const token = localStorage.getItem('token')
     
+    const candidatesInfo = [
+        {
+            id:"1",
+            candidatesLogo: PDP,
+            candidateName: "Deborah Stephen",
+            candidateParty: "PDP"
+        },
+        {
+            id:"2",
+            candidatesLogo: APC,
+            candidateName: "Deborah Stephen",
+            candidateParty: "APC"
+        },
+        {
+            id:"3",
+            candidatesLogo: LP,
+            candidateName: "Deborah Stephen",
+            candidateParty: "LP"
+        },
+        {
+            id:"4",
+            candidatesLogo: APGA,
+            candidateName: "Deborah Stephen",
+            candidateParty: "ANPP"
+        },
+        {
+            id:"5",
+            candidatesLogo: NNPP,
+            candidateName: "Deborah Stephen",
+            candidateParty: "NNPP"
+        },
+    ]
+
     useEffect(()=>{
-        setMessage("Loading Candidates")
-        fetch('https://app.snosfortress.com/controllers/candidates.php',{
-            method:'GET',
-        }).then((res)=>{
-            return res.json()
-            
-        }).then((data)=>{
-            setCandidates(data.candidates)
-            
-        }).catch((e)=>{
-            toast.error("Failed to Load Candidates")
-            setMessage("Cannot Load Candidates, Please check your Network and try again")
-        })
-    },[])
+        setCandidates(candidatesInfo)
+    }, [])
 
     const voteCandidate = async (candidateId) => {
         setLoading(true)
@@ -59,25 +86,33 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                 autoClose={3000} 
                 style={{ position:'fixed', top:'100px', right:'20px'}}    
             />
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-20">
+            <div className="">
                 {candidates.length > 0 ? (
                     candidates.map((candidate)=> (
-                        <div key={candidate.id} className="relative bg-slate-100/50 text-center border-2 rounded-md pb-4 shadow-md hover:scale-105 transition-all duration-500">
-                            <img src={`https://app.snosfortress.com/uploads/${candidate.image_url}`} alt={candidate.image_url + "'s Photo"} className="w-full h-72 object-cover object-top rounded-md"/>
-                            <h3 className="text-xl font-semibold mt-2">{candidate.name} ({candidate.party.toUpperCase()})</h3>
-                            <p className="font-bold text-2xl px-4">Manifesto</p>
-                            <p className="pb-2 px-4 text-justify">{candidate.manifesto}</p>
-                            <p className="absolute top-4 right-4 py-2 px-4 text-center font-bold bg-blue-700 text-white rounded-md mx-auto">{candidate.party.toUpperCase()}</p>
-                            
-                            {showVoteCount &&(
-                                <p className="font-bold text-lg">Votes: {candidate.voteCount}</p>
-                            )}
-                            
+                        <div key={candidate.id} className="relative bg-slate-100/50 border-2 rounded-md shadow-md my-20 md:w-11/12 mx-auto">
+                            <div className="flex justify-between items-center p-4 md:p-8">
+                                <div className="border-2 flex flex-col items-center">
+                                    <img src={`${candidate.candidatesLogo}`} alt={candidate.candidatesLogo + "'s Photo"} className="h-60 object-cover object-top rounded-md "/>
+                                </div>
+                                
+                                <div className="partyName border-2">
+                                    <p className="text-2xl font-bold">{candidate.candidateParty}</p>
+                                </div>
+                                
+                                {/* {showVoteCount &&(
+                                    <p className="font-bold text-lg">Votes: {candidate.voteCount}</p>
+                                )} */}
+                                <div className="flex gap-5">
+                                    <img src={fingerprint} alt="fingerprint icon" className="md:w-5/12 border-2" />
 
-                            {showVoteBtn && (
-                                <button onClick={() => voteCandidate(candidate.id)} className="bg-green-600 py-4 px-8 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{loading ? "Voting, Please Wait ..." : vote}</button>
-                            )}
+                                   {showVoteBtn && (
+                                        <button onClick={() => voteCandidate(candidate.id)} className="bg-green-600 p-4 md:p-6 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{loading ? "Voting, Please Wait ..." : vote}</button>
+                                    )} 
+                                </div>
+                                
+                            </div>
                         </div>
+                       
                     ))
                 ) : (
                     <p className="text-center py-40 border-2 md:absolute w-11/12">{message}</p>

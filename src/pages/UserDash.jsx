@@ -8,7 +8,7 @@ import AuthNavbar from "../components/AuthNavbar";
 
 const UserDashPage = () => {
     const [activeTab, setActiveTab] = useState('candidates')
-    const [userInfo, setUserInfo] = useState({name: "", email:"", id:""})
+    const [voterData, setVoterData] = useState({name: ""})
     const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -18,13 +18,25 @@ const UserDashPage = () => {
         setActiveTab(tab)
     }
 
+    useEffect(()=>{
+        const voterData = JSON.parse(localStorage.getItem('voter'))
+
+        setVoterData({
+            name:voterData.fullname
+        })
+        console.log(voterData);
+        
+    }, [])
+
     return ( 
         <main className="tab ">
             <AuthNavbar onTabChange={tabChange} />
             <div className="w-11/12 mx-auto">
-                <h2 className="font-bold text-left pl-20 text-2xl p-2">Welcome {userInfo.name }</h2>
-                <p className="pl-20 text-left">{ userInfo.email }</p>
-
+                <p className="text-left text-lg p-2">Welcome {voterData.name}</p>
+                <div className="elections px-2">
+                    <p className="font-bold">Ongoing: <span className="text-green-700">Presidential</span></p>
+                    <p className="font-bold">Upcoming: <span className="text-yellow-500">Gubernuterial</span></p>
+                </div>
                 {activeTab === "candidates" && <CandidateData showVoteBtn={true} vote={'Vote'}/>}
                 {activeTab === 'results' && <VoteResults/>}
                 {activeTab === 'vote_history' && <Vote_History />}

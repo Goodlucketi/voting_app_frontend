@@ -21,10 +21,10 @@ const Navbar = () => {
                 </div>
                 <div className={`${navMenu ? ('block'): ('hidden')} actions bg-green-700 p-10 absolute top-10 -right-7 h-screen md:h-0 md:top-0 md:right-0 md:bg-transparent md:p-5 md:text-center md:relative md:flex items-center gap-5`}>
                     <li className="p-2 my-2 list-none"><RouterLink to="/">Home</RouterLink></li>
-                    <li className="p-2 my-2 list-none"><ScrollLink to="about" smooth={true} duration={500}>About</ScrollLink></li>
-                    <li className="p-2 my-2 list-none"><ScrollLink to="features" smooth={true} duration={500}>Features</ScrollLink></li>
-                    <li className="p-2 my-2 list-none"><ScrollLink to="howitworks" smooth={true} duration={500}>How it Works</ScrollLink></li>
-                    <li className="p-2 my-2 list-none"><ScrollLink to="faqs" smooth={true} duration={500}>FAQs</ScrollLink></li>
+                    <li className="p-2 my-2 list-none cursor-pointer"><ScrollLink to="about" smooth={true} duration={500}>About</ScrollLink></li>
+                    <li className="p-2 my-2 list-none cursor-pointer"><ScrollLink to="features" smooth={true} duration={500}>Features</ScrollLink></li>
+                    <li className="p-2 my-2 list-none cursor-pointer"><ScrollLink to="howitworks" smooth={true} duration={500}>How it Works</ScrollLink></li>
+                    <li className="p-2 my-2 list-none cursor-pointer"><ScrollLink to="faqs" smooth={true} duration={500}>FAQs</ScrollLink></li>
                     <li className="p-2 my-2 list-none"><RouterLink to="/authentication">Vote</RouterLink></li>
                 </div>
                 <div onClick={navToggle} className="menu md:hidden">

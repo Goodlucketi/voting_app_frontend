@@ -56,7 +56,7 @@ const Auth = () => {
 
         console.log("Login Successful");
         
-        localStorage.setItem("voter", voterInfo)
+        localStorage.setItem("voter",JSON.stringify(voterInfo))
         navigate('/dashboard')
     }
         
