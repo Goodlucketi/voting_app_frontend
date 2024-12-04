@@ -13,8 +13,8 @@ const VoteResults = () => {
     return ( 
         <main className="p-4 vote-results h-screen">
             <div>
-                <h2 className="text-center  font-bold text-3xl md:my-10">Vote Results</h2>
-                <table className="results_table border-collapse mx-auto border-2 w-11/12">
+                <h2 className="text-center font-bold text-2xl text-green-700 md:text-3xl my-5 md:my-10">Vote Results</h2>
+                <table className="results_table border-collapse mx-auto border-2">
                     <thead className="text-left">
                         <tr className="border-2">
                             <th className="p-2 border-2">S/N</th>

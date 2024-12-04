@@ -79,8 +79,10 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     }
 
     return ( 
-        <main className="w-11/12 mx-auto">
-            <h2 className="text-3xl my-5 md:my-10 text-center font-bold">{title}</h2>
+        <main className="mx-auto">
+            <div>
+                <h2 className="text-3xl my-5 md:my-10 text-center font-bold">{title}</h2>
+            </div>
             <ToastContainer
                 position="top-right"
                 autoClose={3000} 
@@ -89,21 +91,21 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
             <div className="">
                 {candidates.length > 0 ? (
                     candidates.map((candidate)=> (
-                        <div key={candidate.id} className="relative bg-slate-100/50 rounded-md shadow-md my-5 md:my-20 md:w-11/12 mx-auto">
+                        <div key={candidate.id} className="relative bg-slate-100/50 rounded-md shadow-md my-5 md:my-10 mx-auto">
                             <div className="flex justify-between gap-5 items-center py-6 px-2 md:p-8">
                                 <div className="  flex flex-col md:items-center">
-                                    <img src={`${candidate.candidatesLogo}`} alt={candidate.candidatesLogo + "'s Photo"} className=" object-cover object-top rounded-md "/>
+                                    <img src={`${candidate.candidatesLogo}`} alt={candidate.candidatesLogo + "'s Photo"} className="rounded-md "/>
                                 </div>
                                 
                                 <div className="partyName  ">
-                                    <p className="hidden md:text-2xl font-bold">{candidate.candidateParty}</p>
+                                    <p className="hidden md:block md:text-2xl font-bold">{candidate.candidateParty}</p>
                                 </div>
                                 
                                 {/* {showVoteCount &&(
                                     <p className="font-bold text-lg">Votes: {candidate.voteCount}</p>
                                 )} */}
                                 <div className="flex gap-2 justify-center md:gap-5">
-                                    <img src={fingerprint} alt="fingerprint icon" className="w-3/12 md:w-5/12  " />
+                                    <img src={fingerprint} alt="fingerprint icon" className="w-3/12 md:w-3/12  " />
 
                                    {showVoteBtn && (
                                         <button onClick={() => voteCandidate(candidate.id)} className="bg-green-600 p-3 md:p-6 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{loading ? "Voting, Please Wait ..." : vote}</button>

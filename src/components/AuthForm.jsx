@@ -18,7 +18,7 @@ const AuthForm = ({title, error, option, onSubmit, setFullname, setVoterId, setN
                     <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="voters_id" value={voterID} placeholder="Voter ID No." onChange={(e)=>setVoterId(e.target.value)} />
                 </div>
                 <div className="p-2 my-2">
-                    <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="nin" value={nin} placeholder="NIN" onChange={(e)=>setNIN(e.target.value)} />
+                    <input type="text" className="p-3 text-slate-900 rounded-md shadow-md border-none w-full" name="nin" value={nin} placeholder="Authentication Code" onChange={(e)=>setNIN(e.target.value)} />
                 </div>
                 
 

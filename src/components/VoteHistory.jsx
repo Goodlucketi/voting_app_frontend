@@ -4,38 +4,15 @@ const Vote_History = () => {
     const [voterId, setVoterId] = useState(null)
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-
-        if (token) {
-            try {
-              const decoded = JSON.parse(atob(token.split('.')[1])); // Decode JWT token (assuming it's a JWT token)
-              const userId = decoded.user_id; // Assuming user_id is part of the token payload
-              setVoterId(userId);
-            } catch (e) {
-              console.error('Error decoding JWT:', e);
-            }
-        }
-
-        if(voterId){
-            // Fetch vote history from the backend
-            fetch(`https://app.snosfortress.com/controllers/voteHistory.php?voter_id=${voterId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    setVoteHistory(data.voteHistory);
-                }else {
-                    console.log('No vote history found');
-                }
-            }).catch(error => console.error('Error fetching vote history:', error));
-        }
-    }, [voterId]);
+        const voter = localStorage.getItem('voter')
+    },[])
 
     return ( 
         <main className="p-4 h-screen">
             <div className="history">
-                <h2 className="my-5 text-center font-bold test-slate-600 text-3xl">Vote History</h2>
+                <h2 className="my-5 text-center font-bold text-green-700 text-2xl md:text-3xl">Vote History</h2>
                 <div className="table w-11/12 mx-auto">
-                    <table className="border-2 w-11/12">
+                    <table className="border-2 mx-auto">
                         <thead>
                             <tr>
                                 <th className="p-2 border-2">S/N</th>

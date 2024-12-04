@@ -4,9 +4,9 @@ import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free
 
 const Footer = () => {
     return ( 
-        <footer className="bg-green-100/75 py-10">
+        <footer className="bg-green-100/75 pt-10">
             <div className="w-11/12 mx-auto b">
-                <div className="p-2 grid md:grid-cols-5 gap-10 text-xl">
+                <div className="p-2 grid md:grid-cols-4 gap-5 md:gap-10 md:text-lg">
                     <div className="about">
                         <h3 className="font-bold">About</h3>
                         <p><Link>About Us</Link></p>
@@ -48,7 +48,9 @@ const Footer = () => {
                         </p>
                     </div> */}
                 </div>
+                <p className="text-slate-300 p-2 text-center bg-slate-900">Powered by <span className="text-green-500 font-bold">iVOTE</span> </p>
             </div>
+
         </footer>
      );
 }
