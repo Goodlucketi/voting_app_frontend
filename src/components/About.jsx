@@ -11,7 +11,7 @@ const About = () => {
                         <img src={aboutImg3} alt="" />
                     </div>
                 </div>
-                <div className="about-text p-2 py-8">
+                <div className="about-text p-2">
                     <h2 className="font-bold text-3xl text-green-700 mb-3">About iVOTE</h2>
                     <p className="text-xl text-justify mb-10 md:mb-5">
                     iVOTE is a modern voting platform designed to revolutionize the electoral process of the Independent National Electoral Commission (INEC) of Nigeria with security, transparency, and simplicity at its core. Built for electoral bodies and voters alike, our platform ensures every vote is counted accurately and securely while empowering stakeholders to monitor and manage elections seamlessly.
