@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import CandidateReg from "./pages/CandidatesReg"
 import ViewCandidates from './pages/ViewCandidates';
 import Home from './pages/Home';
@@ -11,8 +10,6 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
   return (
    <Router>
-    
-    <Navbar/>
     <Routes>
       <Route path = "/" element={<Home/>} />
       <Route path = "/candidateReg" element={<CandidateReg/>} />

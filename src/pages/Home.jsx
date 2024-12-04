@@ -6,10 +6,12 @@ import HowItWorks from "../components/HowItWorks";
 import Footer from "../components/Footer";
 import { Element } from "react-scroll";
 import Faq from "../components/Faq";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
     return ( 
         <main className="">
+            <Navbar />
             <Element name="home">
                 <LandingPage />
             </Element>

@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
     const [fullname, setFullname] = useState('');
-    const [voterId, setVoterId] = useState('');
+    const [voterID, setVoterId] = useState('');
     const [nin, setNIN] = useState('')
+    const [error, setError] = useState("")
     
     const navigate = useNavigate()
     
@@ -16,50 +17,51 @@ const Auth = () => {
     const validNIN = ["42951837290", "73629410582", "38420591736", "59238410657", "81364907245", "49031682719", "75219043862", "62859410387", "94627180352", "38172045968"]
 
     const validateForm = (e)=>{
-        if(!fullname || !voterId || !nin){
+        if(!fullname || !voterID || !nin){
             toast.error("All fields are required")
             return false
         }
-        if(registeredVoters.includes(voterId)){
-            toast.success('Voter Approved')
-            return true
+        
+        if(!registeredVoters.includes(voterID)){
+            setError('Voter not eligible (Incorrect Voter ID)')
+            setTimeout(() => {
+                setError("")
+            }, 3000);
+            return false
         }else{
-            toast.error('Voter not eligible (Incorrect Voter ID)')
+            toast.success('Voter Approved')
+        }
+        if(!validNIN.includes(nin)){
+            setError("NIN Invalid")
+            setTimeout(() => {
+                setError("")
+            }, 3000);
             return false
         }
-       
-        return true;
+        else{
+            toast.success("NIN Valid")
+        }
+
+       return true
     }
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
+        const voterInfo = {
+            fullname, voterID, nin
+        }
         if(!validateForm(e)){
             return
         }
-           
-        try {
-            const response = await(fetch('https://app.snosfortress.com/controllers/voterRegistration.php', {
-                method: 'POST',
-                body: JSON.stringify({fullname, voterId, nin, }),
-            }))
-            const result = await response.json()
-            console.log(result.success);
-            
-            if (result.success){
-                toast.success("Registration Successful, Please Login")
-                setFullname('');
-                setVoterId('');
-                setNIN('');
-            }else{
-                toast.error(result.message || "Failed to register voter")
-            }
-        } catch (error) {
-            toast.error(error.message || "There are issues registering the voter")
-        } 
+
+        console.log("Login Successful");
+        
+        localStorage.setItem("voter", voterInfo)
+        navigate('/dashboard')
     }
         
     return ( 
-        <header className="landing md:fixed md:overflow-scroll pt-10 pb-52 md:h-screen h-auto w-full text-white md:pt-16 lg:pt-20 md:pb-16">
+        <header className="landing h-screen md:h-auto w-full text-white pt-8 lg:pt-10 md:pb-16">
             <ToastContainer
                 position="top-right"
                 autoClose={3000} 
@@ -67,16 +69,19 @@ const Auth = () => {
             />
             <main className="mx-auto">
                 <div className="form mx-auto md:w-4/12">
+
                     <AuthForm
-                        title="Check Eligibility"
+                        title="User Authentication"
                         option= "Authenticate"
                         onSubmit={handleSubmit}
                         setFullname={setFullname}
                         setVoterId={setVoterId}
                         setNIN={setNIN}
                         fullname={fullname}
-                        voterId={voterId}
+                        voterID={voterID}
                         nin = {nin}
+                        error={error}
+                        setError={setError}
                     />
                 </div>
             </main>
