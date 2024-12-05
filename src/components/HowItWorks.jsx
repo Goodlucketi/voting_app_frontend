@@ -4,7 +4,7 @@ import  works from "../assets/images/rb_437.png"
 
 const HowItWorks = () => {
     return ( 
-        <main className="py-10 my-10">
+        <main className="py-10 md:my-10">
             <div className="how-it-works w-11/12 mx-auto">
                 <div className="howitworks grid md:grid-cols-2 gap-5 items-center">
                     <div className="image">

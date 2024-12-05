@@ -121,8 +121,8 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                                     <p className="hidden md:block md:text-2xl font-bold">{candidate.candidateParty}</p>
                                 </div>
                                 {showVoteBtn && (
-                                <div onClick={()=>handleVoteClick(candidate)} className="flex flex-col items-center py-2 md:py-3 rounded-md bg-green-600">
-                                    <img src={fingerprint} alt="fingerprint icon" className="w-4/12 md:w-4/12 mb-2" />
+                                <div onClick={()=>handleVoteClick(candidate)} className="flex flex-col items-center w-4/12 py-2 md:py-3 rounded-md bg-green-600 hover:bg-green-400 transition-all duration-500">
+                                    <img src={fingerprint} alt="fingerprint icon" className="w-3/12 md:w-3/12 mb-2" />
                                     <button className="text-white text-xl font-sans">{loading ? "Voting, Please Wait ..." : vote}</button>
                                 </div> 
                                 )} 

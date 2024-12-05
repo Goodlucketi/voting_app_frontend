@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
     return ( 
         <footer className="bg-green-100/75 pt-10">
-            <div className="w-11/12 mx-auto b">
-                <div className="p-2 grid md:grid-cols-4 gap-5 md:gap-10 md:text-lg">
+            <div className="w-11/12 mx-auto px-4">
+                <div className="p-2 grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-10 md:text-lg">
                     <div className="about">
                         <h3 className="font-bold">About</h3>
                         <p><Link>About Us</Link></p>
@@ -35,22 +33,9 @@ const Footer = () => {
                         <p><Link>Terms of Service</Link></p>
                         <p><Link>Privacy Policy</Link></p>
                     </div>
-
-                    {/* <div className="download">
-                        <h3 className="font-bold">Download our app</h3>
-                        <img src={appStore} alt="App Store" />
-                        <p className="text-right px-4">
-                            <Link><FontAwesomeIcon icon={faFacebook} className="text-black mr-5"/></Link>
-                            <Link><FontAwesomeIcon icon={faInstagram} className="text-black mr-5"/></Link>
-                            <Link><FontAwesomeIcon icon={faTwitter} className="text-black mr-5"/></Link>
-                            <Link><FontAwesomeIcon icon={faYoutube} className="text-black mr-3"/></Link>
-                        
-                        </p>
-                    </div> */}
                 </div>
-                <p className="text-slate-300 p-2 text-center bg-slate-900">Powered by <span className="text-green-500 font-bold">iVOTE</span> </p>
             </div>
-
+                <p className="text-slate-300 p-2 text-center bg-slate-900 mt-5">Powered by <span className="text-green-500 font-bold">iVOTE</span> </p>
         </footer>
      );
 }
