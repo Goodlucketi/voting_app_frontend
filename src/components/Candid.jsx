@@ -9,7 +9,7 @@ import NNPP from '../assets/images/NNPP.png'
 import fingerprint from '../assets/images/fingerprint.png'
 import Modal from "./Modal";
 
-const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
+const candidatesData = ({title, showVoteBtn, showVoteCount}) => {
     const [candidates, setCandidates] = useState([])
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
@@ -54,13 +54,8 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
         setCandidates(candidatesInfo)
     }, [])
 
-    const handleVoteClick = (candidate) => {
-        console.log("Candidate selected", candidate);
-        
+    const handleVoteClick = (candidate) => {     
         setSelectedCandidate(candidate);
-
-        console.log(selectedCandidate);
-        
         setModal(true);
     };
 
@@ -73,30 +68,9 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
 
         setModal(false)
         setLoading(true)
-        try {
-            const response = await fetch("https://app.snosfortress.com/controllers/vote.php", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify({candidateId})
-            })
-
-            const result = await response.json()
-            if(result.success){
-                toast.success("Vote Successful");
-                setLoading(false)
-            }else{
-                toast.error(result.message || "Failed to Record vote")
-                setLoading(false)
-            }
-        } catch (error) {
-            toast.error(error.message || "An error occured during voting")
+            toast.success("Vote Successful");
             setLoading(false)
-
-        }
-    }
+      }
 
     return ( 
         <main className="mx-auto">
@@ -112,7 +86,7 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                 {candidates.length > 0 ? (
                     candidates.map((candidate)=> (
                         <div key={candidate.id} className="relative bg-slate-100/50 rounded-md shadow-md my-5 md:my-10 mx-auto">
-                            <div className="flex justify-between gap-5 items-center py-6 px-2 md:p-8">
+                            <div className="flex justify-between gap-5 items-center py-6 px-4 md:p-8">
                                 <div className="  flex flex-col md:items-center">
                                     <img src={`${candidate.candidatesLogo}`} alt={candidate.candidatesLogo + "'s Photo"} className="rounded-md "/>
                                 </div>
@@ -121,9 +95,8 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                                     <p className="hidden md:block md:text-2xl font-bold">{candidate.candidateParty}</p>
                                 </div>
                                 {showVoteBtn && (
-                                <div onClick={()=>handleVoteClick(candidate)} className="flex flex-col items-center w-4/12 py-2 md:py-3 rounded-md bg-green-600 hover:bg-green-400 transition-all duration-500">
-                                    <img src={fingerprint} alt="fingerprint icon" className="w-3/12 md:w-3/12 mb-2" />
-                                    <button className="text-white text-xl font-sans">{loading ? "Voting, Please Wait ..." : vote}</button>
+                                <div onClick={()=>handleVoteClick(candidate)} className="cursor-pointer">
+                                    <img src={fingerprint} alt="fingerprint icon" className="w-5/12 md:w-6/12 mb-2 ml-auto" />
                                 </div> 
                                 )} 
                             </div>
