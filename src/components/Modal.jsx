@@ -2,8 +2,8 @@
 const Modal = ({modal, setModal, confirmVote, cancelVote, selectedCandidate})=>{
     if(!modal) return null
     return (
-        <div className="modal absolute top-[30%] w-11/12 md:w-4/12 md:left-[30%] bg-slate-50/95 shadow-md p-8 rounded-md border-2 z-100">
-            <div className="modal-content text-center left">
+        <div className="modal fixed h-screen top-0 w-full left-0 bg-slate-50/95 shadow-md p-4 z-10">
+            <div className="modal-content text-center absolute top-[20%] rounded-md shadow-lg p-6 left-3 md:left-[35%]">
                 <h2 className="font-bold text-2xl mb-3">Confirm Vote</h2>
                 <img src={selectedCandidate.candidatesLogo} alt="" className="p-2 w-5/12 mx-auto"/>
                 <p className="text-xl">Are you sure you want to Vote <span className="text-red-700 font-bold text-2xl">{selectedCandidate.candidateParty}</span></p>

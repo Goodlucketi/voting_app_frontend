@@ -34,7 +34,7 @@ const UserDashPage = () => {
                 <div className="elections px-2">
                     <p className="font-bold text-xl">Election: <span className="text-green-700">Presidential</span></p>
                 </div>
-                {activeTab === "candidates" && <CandidateData showVoteBtn={true} vote={'Vote'}/>}
+                {activeTab === "candidates" && <CandidateData showVoteBtn={true} vote={'VOTE'}/>}
                 {activeTab === 'results' && <VoteResults/>}
                 {activeTab === 'vote_history' && <Vote_History />}
 
