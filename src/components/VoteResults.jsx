@@ -11,7 +11,7 @@ const VoteResults = () => {
     }, []);
 
     return ( 
-        <main className="p-6 vote-results mb-10">
+        <main className="p-2 vote-results mb-10">
             <div>
                 <h2 className="text-center font-bold text-2xl text-green-700 md:text-3xl my-5 ">Vote Results</h2>
                 <table className="results_table border-collapse mx-auto border-2 w-full">
