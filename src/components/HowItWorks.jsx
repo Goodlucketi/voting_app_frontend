@@ -21,8 +21,8 @@ const HowItWorks = () => {
                             </li>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
                                 <FontAwesomeIcon icon={faVoteYea} className="text-green-700 text-2xl"/>
-                                <h2 className="font-bold text-xl text-green-800">Choose Your Candidate</h2>
-                                <p className=" text-lg">Browse the list of candidates and select your preferred choice.</p>
+                                <h2 className="font-bold text-xl text-green-800">Choose Your Party</h2>
+                                <p className=" text-lg">Browse the list of parties and select your preferred choice.</p>
                             </li>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
                                 <FontAwesomeIcon icon={faCheckCircle} className="text-green-700 text-2xl"/>
