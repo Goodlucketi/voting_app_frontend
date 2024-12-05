@@ -7,11 +7,14 @@ import LP from '../assets/images/LP.jpg'
 import APGA from '../assets/images/APGAA.png'
 import NNPP from '../assets/images/NNPP.png'
 import fingerprint from '../assets/images/fingerprint.png'
+import Modal from "./Modal";
 
 const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
     const [candidates, setCandidates] = useState([])
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
+    const [modal, setModal] = useState(false)
+    const [selectedCandidate, setSelectedCandidate] = useState(null)
     const token = localStorage.getItem('token')
     
     const candidatesInfo = [
@@ -51,7 +54,24 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
         setCandidates(candidatesInfo)
     }, [])
 
+    const handleVoteClick = (candidate) => {
+        console.log("Candidate selected", candidate);
+        
+        setSelectedCandidate(candidate);
+
+        console.log(selectedCandidate);
+        
+        setModal(true);
+    };
+
+    const cancelVote = () => {
+        setModal(false);
+    };
+
     const voteCandidate = async (candidateId) => {
+        if(!selectedCandidate) return
+
+        setModal(false)
         setLoading(true)
         try {
             const response = await fetch("https://app.snosfortress.com/controllers/vote.php", {
@@ -101,25 +121,30 @@ const candidatesData = ({title, vote, showVoteBtn, showVoteCount}) => {
                                     <p className="hidden md:block md:text-2xl font-bold">{candidate.candidateParty}</p>
                                 </div>
                                 
-                                {/* {showVoteCount &&(
-                                    <p className="font-bold text-lg">Votes: {candidate.voteCount}</p>
-                                )} */}
                                 <div className="flex gap-2 justify-center md:gap-5">
                                     <img src={fingerprint} alt="fingerprint icon" className="w-3/12 md:w-3/12  " />
 
                                    {showVoteBtn && (
-                                        <button onClick={() => voteCandidate(candidate.id)} className="bg-green-600 p-3 md:p-6 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{loading ? "Voting, Please Wait ..." : vote}</button>
+                                        <button onClick={()=>handleVoteClick(candidate)} className="bg-green-600 p-3 md:p-6 my-2 rounded-md md:w-6/12 text-white text-2xl font-bold">{loading ? "Voting, Please Wait ..." : vote}</button>
                                     )} 
-                                </div>
-                                
+                                </div> 
                             </div>
                         </div>
-                       
                     ))
                 ) : (
                     <p className="text-center py-40   md:absolute w-11/12">{message}</p>
                 )}
             </div>
+            {modal && selectedCandidate &&(
+                <Modal
+                    selectedCandidate={selectedCandidate}
+                    confirmVote = {voteCandidate}
+                    cancelVote = {cancelVote}
+                    modal = {modal}
+                    setModal = {setModal}
+                    message= "Are you Sure"
+                />)
+            }
         </main>
     )
 }

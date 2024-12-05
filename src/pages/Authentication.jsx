@@ -1,10 +1,10 @@
 import Auth from "../components/Auth";
-import Navbar from "../components/Navbar";
+import AuthNav from "../components/AuthNav";
 
 const Home = () => {
     return ( 
         <main>
-            <Navbar />
+            <AuthNav />
             <Auth />
         </main>
      );
