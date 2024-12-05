@@ -74,7 +74,7 @@ const candidatesData = () => {
     const voteCandidate = () => {
         if(!selectedParty) return
         
-        const hasVoted = localStorage.getItem("hasVoted")
+        const hasVoted = sessionStorage.getItem("hasVoted")
         if(hasVoted){
             toast.error("You can only vote once")
             return
@@ -92,7 +92,7 @@ const candidatesData = () => {
 
         setParties(updatedVotes)
         localStorage.setItem('parties', JSON.stringify(updatedVotes))
-        localStorage.setItem("hasVoted", true)
+        sessionStorage.setItem("hasVoted", true)
             toast.success("Vote Successful");
             setLoading(false)
       }
