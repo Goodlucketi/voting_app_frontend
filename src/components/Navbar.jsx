@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
 import inec from '../assets/images/inec-logo.jpg'
@@ -33,7 +33,8 @@ const Navbar = () => {
     }, [location])
     return ( 
         <header className="bg-green-700 sticky top-0 left-0 z-10 shadow-lg">
-            <nav ref={navMenuRef} className="relative p-5 md:p-3 flex items-center justify-between w-11/12 mx-auto text-white font-sans">
+            <p className="text-right text-white p-2 w-10/12 mx-auto">Need Support? <Link to="/support">Click Here</Link></p>
+            <nav ref={navMenuRef} className="relative p-3 md:p-3 flex items-center justify-between w-11/12 mx-auto text-white font-sans">
                 <div className="logo flex items-center  md:w-2/12">
                     <img src={inec} alt="INEC logo" className="rounded-full w-2/12 md:w-3/12" /> &nbsp;
                     <h2 className="font-bold text-2xl"><RouterLink to="/" >iVOTE</RouterLink></h2>

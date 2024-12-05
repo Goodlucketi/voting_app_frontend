@@ -11,7 +11,7 @@ const HowItWorks = () => {
                         <img src={works} alt="How It Works" />
                     </div>
                     <div className="works">
-                        <h2 className="font-bold text-3xl md:text-3xl text-green-700 mb-3 text-left">How It Works</h2>
+                        <h2 className="px-6 font-bold text-2xl md:text-3xl text-green-700 mb-3 text-left">How It Works</h2>
 
                         <ul>
                             <li className="my-2 shadow-md bg-slate-50/50 p-6">
