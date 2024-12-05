@@ -9,53 +9,61 @@ import NNPP from '../assets/images/NNPP.png'
 import fingerprint from '../assets/images/fingerprint.png'
 import Modal from "./Modal";
 
-const candidatesData = ({title, showVoteBtn, showVoteCount}) => {
-    const [candidates, setCandidates] = useState([])
+const candidatesData = () => {
+    const [parties, setParties] = useState([])
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState('')
     const [modal, setModal] = useState(false)
-    const [selectedCandidate, setSelectedCandidate] = useState(null)
+    const [selectedParty, setSelectedParty] = useState(null)
     const token = localStorage.getItem('token')
     
-    const candidatesInfo = [
+    const partiesInfo = [
         {
             id:"1",
             candidatesLogo: PDP,
-            candidateName: "Deborah Stephen",
+            votes: 0,
             candidateParty: "PDP"
         },
         {
             id:"2",
             candidatesLogo: APC,
-            candidateName: "Deborah Stephen",
+            votes: 0,
             candidateParty: "APC"
         },
         {
             id:"3",
             candidatesLogo: LP,
-            candidateName: "Deborah Stephen",
+            votes: 0,
             candidateParty: "LP"
         },
         {
             id:"4",
             candidatesLogo: APGA,
-            candidateName: "Deborah Stephen",
+            votes: 0,
             candidateParty: "ANPP"
         },
         {
             id:"5",
             candidatesLogo: NNPP,
-            candidateName: "Deborah Stephen",
+            votes: 0,
             candidateParty: "NNPP"
         },
     ]
 
     useEffect(()=>{
-        setCandidates(candidatesInfo)
+        const storedVotes = JSON.parse(localStorage.getItem('parties'))
+        if(storedVotes && storedVotes.length>0){
+            setParties(storedVotes)
+        }
+        else{
+            setParties(partiesInfo)
+            localStorage.setItem('parties', JSON.stringify(partiesInfo))
+        }
     }, [])
 
-    const handleVoteClick = (candidate) => {     
-        setSelectedCandidate(candidate);
+
+    const handleVoteClick = (party) => {     
+        setSelectedParty(party);
         setModal(true);
     };
 
@@ -63,42 +71,56 @@ const candidatesData = ({title, showVoteBtn, showVoteCount}) => {
         setModal(false);
     };
 
-    const voteCandidate = async (candidateId) => {
-        if(!selectedCandidate) return
+    const voteCandidate = () => {
+        if(!selectedParty) return
+        
+        const hasVoted = localStorage.getItem("hasVoted")
+        if(hasVoted){
+            toast.error("You can only vote once")
+            return
+        }
 
         setModal(false)
         setLoading(true)
+
+        const updatedVotes = parties.map((party)=>{
+            if(party.id === selectedParty.id){
+                return {...party, votes:party.votes+1}
+            }
+            return party
+        })
+
+        setParties(updatedVotes)
+        localStorage.setItem('parties', JSON.stringify(updatedVotes))
+        localStorage.setItem("hasVoted", true)
             toast.success("Vote Successful");
             setLoading(false)
       }
 
     return ( 
         <main className="mx-auto">
-            <div>
-                <h2 className="text-3xl my-5 md:my-10 text-center font-bold">{title}</h2>
-            </div>
             <ToastContainer
                 position="top-right"
                 autoClose={3000} 
                 style={{ position:'fixed', top:'100px', right:'20px'}}    
             />
             <div className="">
-                {candidates.length > 0 ? (
-                    candidates.map((candidate)=> (
-                        <div key={candidate.id} className="relative bg-slate-100/50 rounded-md shadow-md my-5 md:my-10 mx-auto">
+                {parties.length > 0 ? (
+                    parties.map((party)=> (
+                        <div key={party.id} className="relative bg-slate-100/50 rounded-md shadow-md my-5 md:my-10 mx-auto">
                             <div className="flex justify-between gap-5 items-center py-6 px-4 md:p-8">
                                 <div className="  flex flex-col md:items-center">
-                                    <img src={`${candidate.candidatesLogo}`} alt={candidate.candidatesLogo + "'s Photo"} className="rounded-md "/>
+                                    <img src={`${party.candidatesLogo}`} alt={party.candidatesLogo + "'s Photo"} className="rounded-md "/>
                                 </div>
                                 
                                 <div className="partyName  ">
-                                    <p className="hidden md:block md:text-2xl font-bold">{candidate.candidateParty}</p>
+                                    <p className="hidden md:block md:text-2xl font-bold">{party.candidateParty}</p>
                                 </div>
-                                {showVoteBtn && (
-                                <div onClick={()=>handleVoteClick(candidate)} className="cursor-pointer">
+                                
+                                <div onClick={()=>handleVoteClick(party)} className="cursor-pointer">
                                     <img src={fingerprint} alt="fingerprint icon" className="w-5/12 md:w-6/12 mb-2 ml-auto" />
                                 </div> 
-                                )} 
+                                
                             </div>
                         </div>
                     ))
@@ -106,9 +128,9 @@ const candidatesData = ({title, showVoteBtn, showVoteCount}) => {
                     <p className="text-center py-40   md:absolute w-11/12">{message}</p>
                 )}
             </div>
-            {modal && selectedCandidate &&(
+            {modal && selectedParty &&(
                 <Modal
-                    selectedCandidate={selectedCandidate}
+                    selectedParty={selectedParty}
                     confirmVote = {voteCandidate}
                     cancelVote = {cancelVote}
                     modal = {modal}

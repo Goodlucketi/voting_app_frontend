@@ -30,5 +30,5 @@ body{
   background-attachment: fixed;
 }
 .results_table tr:nth-child(even){
-  background: rgb(144, 144, 240);
+  background: rgb(108, 216, 144);
 }
