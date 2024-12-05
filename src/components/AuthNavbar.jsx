@@ -40,7 +40,7 @@ const AuthNavbar = ({ onTabChange }) => {
                     <h2 className="text-xl md:text-2xl font-bold"><Link to="/">iVOTE</Link></h2>
                 </div>
                 
-                <div className={`${navBar ? ('block'): ('hidden')} actions absolute top-10 -right-10 md:top-0 md:right-0 h-screen md:h-auto bg-green-700 p-8 md:relative md:flex gap-10 items-center text-slate-200 text-lg`}>
+                <div className={`${navBar ? ('block'): ('hidden')} actions absolute top-10 -right-7 md:top-0 md:right-0 h-screen md:h-auto bg-green-700 p-8 md:relative md:flex gap-10 items-center text-slate-200 text-lg`}>
                     <li onClick={()=> onTabChange('candidates')} className="list-none mb-5 md:mb-0 cursor-pointer">Vote Candidate</li>
                     <li onClick={()=> onTabChange('vote_history')} className="list-none mb-5 md:mb-0 cursor-pointer"> Vote History</li>
                     <li onClick={()=> onTabChange('results')} className="list-none mb-5 md:mb-0 cursor-pointer">Results</li>

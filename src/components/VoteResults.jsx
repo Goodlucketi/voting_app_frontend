@@ -5,7 +5,7 @@ const VoteResults = () => {
 
     useEffect(() => {
        const storedResults = JSON.parse(localStorage.getItem('parties'))
-       console.log(storedResults);
+    //    console.log(storedResults);
        setResults(storedResults)
        
     }, []);
