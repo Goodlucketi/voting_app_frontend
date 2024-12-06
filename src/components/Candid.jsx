@@ -77,6 +77,7 @@ const candidatesData = () => {
         const hasVoted = sessionStorage.getItem("hasVoted")
         if(hasVoted){
             toast.error("You can only vote once")
+            setModal(false)
             return
         }
 
